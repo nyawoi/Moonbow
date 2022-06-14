@@ -6,7 +6,7 @@ namespace AetharNet.Moonbow.Experimental.Interfaces
     /// Mod hook with extended messaging functionality.
     /// Intercept/modify/act upon message events on the client.
     /// </summary>
-    public interface IClientMessagingHook : IModHookV4
+    public interface IClientMessagingHook
     {
         /// <summary>
         /// Intercept or modify a command being sent by the client.

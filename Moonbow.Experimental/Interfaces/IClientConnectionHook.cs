@@ -8,7 +8,7 @@ namespace AetharNet.Moonbow.Experimental.Interfaces
     /// Act upon events on the client.
     /// NOTE: Events are not immediate, as the current implementation relies on the client-side player list, which retrieves updates every so often.
     /// </summary>
-    public interface IClientConnectionHook : IModHookV4
+    public interface IClientConnectionHook
     {
         /// <summary>
         /// Event fired whenever a player joins the game.

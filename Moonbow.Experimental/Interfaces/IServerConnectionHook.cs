@@ -7,7 +7,7 @@ namespace AetharNet.Moonbow.Experimental.Interfaces
     /// Mod hook with extended player connection functionality.
     /// Act upon events on the server.
     /// </summary>
-    public interface IServerConnectionHook : IModHookV4
+    public interface IServerConnectionHook
     {
         /// <summary>
         /// Event fired whenever a player joins the game.
