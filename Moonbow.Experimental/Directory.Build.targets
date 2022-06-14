@@ -1,10 +1,13 @@
 ﻿<Project DefaultTargets="Build">
-    <Target Name="DeployToStaxelBin" AfterTargets="Build">
-        <PropertyGroup>
-            <!-- Point to Staxel bin directory; edit as necessary -->
-            <StaxelBin>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin</StaxelBin>
-        </PropertyGroup>
-
+    <Target Name="ValidateStaxelBin" BeforeTargets="Build">
+        <!-- If the StaxelBin property has not been set, throw an error -->
+        <Error
+            Condition="'$(StaxelBin)' == ''"
+            Text="Please specify your Staxel bin directory."
+        />
+    </Target>
+    
+    <Target Name="DeployToStaxelBin" AfterTargets="Build">  
         <!-- Copy newly-built assembly to Staxel bin directory -->
         <Copy
             SourceFiles="$(TargetDir)$(AssemblyName).dll"

@@ -1,0 +1,24 @@
+﻿<Project>
+    <PropertyGroup>
+        <!-- Default Steam install location -->
+        <DefaultStaxelSteamDir>C:\Program Files (x86)\Steam\steamapps\common\Staxel\bin</DefaultStaxelSteamDir>
+        <!-- Default GOG install location -->
+        <DefaultStaxelGOGDir>C:\GOG Games\Staxel\bin</DefaultStaxelGOGDir>
+
+        <!--
+            Custom Staxel install locations go here:
+            Installed Steam on another drive? Renamed the GOG installation directory?
+            If so, this property is for you!
+            Set this property to your Staxel installation's bin directory.
+        -->
+        <StaxelBin></StaxelBin>
+        
+        <!--
+            If no custom install location has been set, fallback to default Steam and GOG install locations.
+            Steam will take higher priority over GOG, so if you're targetting the GOG version of the game,
+            use the custom install location property above, as it holds highest priority.
+        -->
+        <StaxelBin Condition="'$(StaxelBin)' == '' And Exists('$(DefaultStaxelSteamDir)')">$(DefaultStaxelSteamDir)</StaxelBin>
+        <StaxelBin Condition="'$(StaxelBin)' == '' And Exists('$(DefaultStaxelGOGDir)')">$(DefaultStaxelGOGDir)</StaxelBin>
+    </PropertyGroup>
+</Project>
