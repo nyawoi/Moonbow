@@ -45,12 +45,11 @@ namespace AetharNet.Moonbow.Experimental.Hooks
 
         public override void ClientContextInitializeAfter()
         {
-            // ISSUE 2022-05-19: Attempting to join an unmanaged server will result in an exception due to LanguageDatabase being null.
-            if (ClientContext.LanguageDatabase == null) return;
+            // ISSUE 2022-05-19: Attempting to join a server will result in an exception due to a field leading to the English Language Database being null.
             
-            var englishDatabase = ClientContext.LanguageDatabase.AccessField<Language>("_english");
+            var englishDatabase = ClientContext.LanguageDatabase?.AccessField<Language>("_english");
             
-            if (englishDatabase.LanguageStrings.ContainsKey(GameUtilities.EchoTranslationKey)) return;
+            if (englishDatabase?.LanguageStrings?.ContainsKey(GameUtilities.EchoTranslationKey) ?? true) return;
             
             englishDatabase.AddString(GameUtilities.EchoTranslationKey, "{0}");
         }
