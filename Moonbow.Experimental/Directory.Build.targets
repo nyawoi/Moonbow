@@ -5,6 +5,16 @@
             Condition="'$(StaxelBin)' == ''"
             Text="Please specify your Staxel bin directory."
         />
+        <!-- If the StaxelBin location does not exist, throw an error -->
+        <Error
+            Condition="!Exists('$(StaxelBin)')"
+            Text="Could not locate Staxel bin directory. Please check your StaxelBin property and try again."
+        />
+        <!-- If the Staxel assemblies are missing, throw an error -->
+        <Error
+            Condition="!Exists('$(StaxelBin)\Plukit.Base.dll') Or !Exists('$(StaxelBin)\Staxel.dll')"
+            Text="Could not locate the Staxel.dll assembly. Please check your StaxelBin property and try again. Alternatively, verify integrity of game files."
+        />
     </Target>
     
     <Target Name="DeployToStaxelBin" AfterTargets="Build">  
