@@ -8,7 +8,7 @@ using Staxel.Modding;
 
 namespace AetharNet.Moonbow.Experimental.Hooks
 {
-    public class CoroutineHook : ModHookTemplate, IModHookV4
+    public class CoroutineHook : ModHookV4Template, IModHookV4
     {
         private static LinkedList<IEnumerator<Timestep>> Coroutines => Coroutine.Coroutines;
         
