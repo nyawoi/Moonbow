@@ -157,9 +157,12 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Effects\ModRequirementEffect.cs" />
+        <Compile Include="Effects\ModRequirementEffectBuilder.cs" />
         <Compile Include="Hooks\ConnectionComponentHook.cs" />
         <Compile Include="Hooks\CoroutineHook.cs" />
         <Compile Include="Hooks\MessagingComponentHook.cs" />
+        <Compile Include="Hooks\ModRequirementHook.cs" />
         <Compile Include="Interfaces\IClientConnectionHook.cs" />
         <Compile Include="Interfaces\IClientMessagingHook.cs" />
         <Compile Include="Interfaces\IServerConnectionHook.cs" />
@@ -192,6 +195,7 @@
         <Compile Include="Utilities\Extensions.cs" />
         <Compile Include="Utilities\FormatInfo.cs" />
         <Compile Include="Utilities\GameUtilities.cs" />
+        <Compile Include="Utilities\ModHelper.cs" />
         <Compile Include="Utilities\ServerMessaging.cs" />
         <Compile Include="Utilities\TextStyling.cs" />
         <Compile Include="Utilities\WorldModDirectoryManager.cs" />
