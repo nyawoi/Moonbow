@@ -42,16 +42,5 @@ namespace AetharNet.Moonbow.Experimental.Hooks
             ClientMessagingHooks.Clear();
             ServerMessagingHooks.Clear();
         }
-
-        public override void ClientContextInitializeAfter()
-        {
-            // ISSUE 2022-05-19: Attempting to join a server will result in an exception due to a field leading to the English Language Database being null.
-            
-            var englishDatabase = ClientContext.LanguageDatabase?.AccessField<Language>("_english");
-            
-            if (englishDatabase?.LanguageStrings?.ContainsKey(GameUtilities.EchoTranslationKey) ?? true) return;
-            
-            englishDatabase.AddString(GameUtilities.EchoTranslationKey, "{0}");
-        }
     }
 }
