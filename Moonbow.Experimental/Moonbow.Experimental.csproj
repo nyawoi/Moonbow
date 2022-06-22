@@ -158,6 +158,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Hooks\ConnectionComponentHook.cs" />
+        <Compile Include="Hooks\CoroutineHook.cs" />
         <Compile Include="Hooks\MessagingComponentHook.cs" />
         <Compile Include="Interfaces\IClientConnectionHook.cs" />
         <Compile Include="Interfaces\IClientMessagingHook.cs" />
@@ -187,6 +188,7 @@
         <Compile Include="Utilities\ChatFormat.cs" />
         <Compile Include="Utilities\ChatFormatXna.cs" />
         <Compile Include="Utilities\ClientMessaging.cs" />
+        <Compile Include="Utilities\Coroutine.cs" />
         <Compile Include="Utilities\Extensions.cs" />
         <Compile Include="Utilities\FormatInfo.cs" />
         <Compile Include="Utilities\GameUtilities.cs" />
