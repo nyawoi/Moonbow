@@ -46,5 +46,19 @@ namespace AetharNet.Moonbow.Experimental.Hooks
                     Callbacks.Remove(requestCode);
                 });
         }
+
+        internal static void AddTimedCallback(long timeoutMs, string requestCode, Action<bool> callback)
+        {
+            Callbacks.Add(requestCode, callback);
+            Coroutine.AwaitTimedCondition(
+                GameUtilities.Universe.Step + (Constants.TimestepsPerMilliSecond * timeoutMs),
+                () => !Callbacks.ContainsKey(requestCode),
+                timeout =>
+                {
+                    if (!timeout) return;
+                    callback(false);
+                    Callbacks.Remove(requestCode);
+                });
+        }
     }
 }

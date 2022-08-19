@@ -36,5 +36,23 @@ namespace AetharNet.Moonbow.Experimental.Utilities
             ModRequirementHook.AddCallback(requestCode, callback);
             playerEntity.Effects.Trigger(new EffectTrigger(ModRequirementEffectBuilder.KindCode(), requestData));
         }
+
+        public static void RequestModCheck(Entity playerEntity, string modName, long timeout, Action<bool> callback)
+        {
+            if (playerEntity.PlayerEntityLogic == null)
+            {
+                throw new Exception("Provided entity is not a player.");
+            }
+
+            var requestCode = Path.GetRandomFileName().Replace(".", "");
+            var requestData = BlobAllocator.Blob(true);
+            
+            requestData.SetLong("entityId", playerEntity.Id.Id);
+            requestData.SetString("modName", modName);
+            requestData.SetString("requestCode", requestCode);
+            
+            ModRequirementHook.AddTimedCallback(timeout, requestCode, callback);
+            playerEntity.Effects.Trigger(new EffectTrigger(ModRequirementEffectBuilder.KindCode(), requestData));
+        }
     }
 }
