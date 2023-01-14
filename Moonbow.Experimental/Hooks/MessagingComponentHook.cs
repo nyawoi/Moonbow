@@ -3,9 +3,7 @@ using AetharNet.Moonbow.Experimental.Patches;
 using AetharNet.Moonbow.Experimental.Templates;
 using AetharNet.Moonbow.Experimental.Utilities;
 using Plukit.Base;
-using Staxel;
 using Staxel.Modding;
-using Staxel.Translation;
 
 namespace AetharNet.Moonbow.Experimental.Hooks
 {
