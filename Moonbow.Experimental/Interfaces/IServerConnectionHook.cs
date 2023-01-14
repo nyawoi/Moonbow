@@ -1,4 +1,5 @@
-﻿using Staxel.Logic;
+﻿using System;
+using Staxel.Logic;
 using Staxel.Modding;
 
 namespace AetharNet.Moonbow.Experimental.Interfaces
@@ -7,7 +8,7 @@ namespace AetharNet.Moonbow.Experimental.Interfaces
     /// Mod hook with extended player connection functionality.
     /// Act upon events on the server.
     /// </summary>
-    public interface IServerConnectionHook
+    public interface IServerConnectionHook : IDisposable
     {
         /// <summary>
         /// Event fired whenever a player joins the game.
