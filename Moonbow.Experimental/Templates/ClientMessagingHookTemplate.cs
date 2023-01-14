@@ -2,6 +2,7 @@
 {
     public class ClientMessagingHookTemplate
     {
+        public virtual void Dispose() {}
         public virtual bool InterceptOutgoingCommand(ref string command) => true;
         public virtual bool InterceptOutgoingMessage(ref string message) => true;
         public virtual bool InterceptIncomingMessage(string nick, ref string message) => true;

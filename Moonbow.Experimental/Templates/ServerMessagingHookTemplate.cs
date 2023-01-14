@@ -5,6 +5,7 @@ namespace AetharNet.Moonbow.Experimental.Templates
 {
     public class ServerMessagingHookTemplate
     {
+        public virtual void Dispose() {}
         public virtual bool InterceptPlayerCommand(EntityId entityId, ref string command, ICommandsApi api) => true;
         public virtual bool InterceptPlayerMessage(EntityId entityId, ref string message, ICommandsApi api) => true;
 

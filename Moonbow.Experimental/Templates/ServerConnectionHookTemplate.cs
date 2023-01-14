@@ -4,6 +4,7 @@ namespace AetharNet.Moonbow.Experimental.Templates
 {
     public class ServerConnectionHookTemplate
     {
+        public virtual void Dispose() {}
         public virtual void OnPlayerConnect(Entity playerEntity) {}
         public virtual void OnPlayerDisconnect(Entity playerEntity) {}
         public virtual void OnPlayerKicked(Entity playerEntity) {}
