@@ -1,6 +1,5 @@
 ﻿using System;
 using Staxel.Logic;
-using Staxel.Modding;
 
 namespace AetharNet.Moonbow.Experimental.Interfaces
 {
