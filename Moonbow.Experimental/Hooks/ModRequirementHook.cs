@@ -60,5 +60,10 @@ namespace AetharNet.Moonbow.Experimental.Hooks
                     Callbacks.Remove(requestCode);
                 });
         }
+
+        public override void Dispose()
+        {
+            Callbacks.Clear();
+        }
     }
 }
