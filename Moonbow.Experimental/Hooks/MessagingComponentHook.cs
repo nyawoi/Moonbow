@@ -3,9 +3,7 @@ using AetharNet.Moonbow.Experimental.Patches;
 using AetharNet.Moonbow.Experimental.Templates;
 using AetharNet.Moonbow.Experimental.Utilities;
 using Plukit.Base;
-using Staxel;
 using Staxel.Modding;
-using Staxel.Translation;
 
 namespace AetharNet.Moonbow.Experimental.Hooks
 {
@@ -39,8 +37,24 @@ namespace AetharNet.Moonbow.Experimental.Hooks
 
         public override void Dispose()
         {
-            ClientMessagingHooks.Clear();
-            ServerMessagingHooks.Clear();
+            if (GameUtilities.IsClient)
+            {
+                foreach (var messagingHook in ClientMessagingHooks)
+                {
+                    messagingHook.Dispose();
+                }
+                
+                ClientMessagingHooks.Clear();
+            }
+            else if (GameUtilities.IsServer)
+            {
+                foreach (var messagingHook in ServerMessagingHooks)
+                {
+                    messagingHook.Dispose();
+                }
+                
+                ServerMessagingHooks.Clear();
+            }
         }
     }
 }

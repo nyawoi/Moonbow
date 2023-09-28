@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using AetharNet.Moonbow.Experimental.Interfaces;
 using AetharNet.Moonbow.Experimental.Templates;
 using AetharNet.Moonbow.Experimental.Utilities;
-using Plukit.Base;
 using Staxel.Commands;
 using Staxel.Core;
 using Staxel.Logic;
@@ -59,6 +58,11 @@ namespace AetharNet.Moonbow.Experimental.Hooks
                     callback(false);
                     Callbacks.Remove(requestCode);
                 });
+        }
+
+        public override void Dispose()
+        {
+            Callbacks.Clear();
         }
     }
 }

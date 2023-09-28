@@ -1,4 +1,4 @@
-﻿using Staxel.Modding;
+﻿using System;
 
 namespace AetharNet.Moonbow.Experimental.Interfaces
 {
@@ -6,7 +6,7 @@ namespace AetharNet.Moonbow.Experimental.Interfaces
     /// Mod hook with extended messaging functionality.
     /// Intercept/modify/act upon message events on the client.
     /// </summary>
-    public interface IClientMessagingHook
+    public interface IClientMessagingHook : IDisposable
     {
         /// <summary>
         /// Intercept or modify a command being sent by the client.

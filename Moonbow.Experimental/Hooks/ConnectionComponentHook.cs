@@ -48,8 +48,24 @@ namespace AetharNet.Moonbow.Experimental.Hooks
 
         public override void Dispose()
         {
-            ClientConnectionHooks.Clear();
-            ServerConnectionHooks.Clear();
+            if (GameUtilities.IsClient)
+            {
+                foreach (var connectionHook in ClientConnectionHooks)
+                {
+                    connectionHook.Dispose();
+                }
+                
+                ClientConnectionHooks.Clear();
+            }
+            else if (GameUtilities.IsServer)
+            {
+                foreach (var connectionHook in ServerConnectionHooks)
+                {
+                    connectionHook.Dispose();
+                }
+                
+                ServerConnectionHooks.Clear();
+            }
         }
 
         public override void CleanupOldSession()

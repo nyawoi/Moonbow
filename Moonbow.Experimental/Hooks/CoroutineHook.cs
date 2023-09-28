@@ -52,5 +52,15 @@ namespace AetharNet.Moonbow.Experimental.Hooks
                 } while (shouldLoop);
             }
         }
+
+        public override void Dispose()
+        {
+            foreach (var coroutine in Coroutines)
+            {
+                coroutine.Dispose();
+            }
+            
+            Coroutines.Clear();
+        }
     }
 }
